@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<title>隐藏文字的几种方法</title>
+<style>
+p {float:left;width:100px;height:40px;overflow:hidden;margin:0 5px;padding:10px;font:normal 13px/1.5 "microsoft YaHei", simsun, Verdana,Lucida, Arial, Helvetica, sans-serif;color:#FF0000;border:1px solid #000000;background-color:#E5E5E5;}
+
+p.ti {text-indent:-99em;}
+p.lh {line-height:99em;}
+p.vh span {visibility:hidden;}
+p.dn span {display:none;}
+p.pa span {position:absolute;top:-99em;}
+p.ma span {display:block;margin-top:-99em;}
+p.zindex span {position:absolute;z-index:-1;}
+p.color {color:#E5E5E5;}
+
+div {float: left;margin: 10px;width: 300px;}
+div h2 {font-size: 16px;}
+div:hover h2 {color: #fe2600;}
+</style>
+</head>
+<body>
+<h1>隐藏文字的几种方法</h1>
+
+<div>
+	<h2>为隐藏的文字</h2>
+	<p>未隐藏的文字</p>
+</div>
+
+<div>
+	<h2>text-indent:-99em;</h2>
+	<p class="ti">文字隐藏</p>
+</div>
+
+<div>
+	<h2>line-height:99em;</h2>
+	<p class="lh">文字隐藏</p>
+</div>
+
+<div>
+	<h2>visibility:hidden;</h2>
+	<p class="vh"><span>文字隐藏</span></p>
+</div>
+
+<div>
+	<h2>display:none;</h2>
+	<p class="dn"><span>文字隐藏</span></p>
+</div>
+
+<div>
+	<h2>position:absolute;top:-99em;</h2>
+	<p class="pa"><span>文字隐藏</span></p>
+</div>
+
+<div>
+	<h2>display:block;margin-top:-99em;</h2>
+	<p class="ma"><span>文字隐藏</span></p>
+</div>
+
+<div>
+	<h2>position:absolute;z-index:-1;</h2>
+	<p class="zindex"><span>文字隐藏</span></p>
+</div>
+
+<div>
+	<h2>color &amp; background-color</h2>
+	<p class="color">文字隐藏</p>
+</div>
+</body>
+</html>
