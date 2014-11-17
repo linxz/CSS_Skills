@@ -20,7 +20,7 @@
 ##网页效果
 在看网页中的效果，其实跟这个是一样的，直接给demo地址吧。
 
-[首行缩进和首行悬挂的demo](../demo/text/text-indent.html)
+[首行缩进和首行悬挂的demo](http://linxz.github.io/CSS_Skills/demo/text/text-indent.html)
 
 很简单，关键代码如下：
 

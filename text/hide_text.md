@@ -21,7 +21,7 @@
 
 对于这几种方式都比较好理解，或许也有遗漏的，比如说现在随着**CSS3**的盛行，可以用`tansform:rotateX/Y/Z`等各种方式来让内容不可见，但这个可用性太差了，这里就不提了。
 
-前面提到的demo可以直接点击这里查看：[>>点击查看demo<<](../demo/text/hide_text.html)
+前面提到的demo可以直接点击这里查看：[>>点击查看demo<<](http://linxz.github.io/CSS_Skills/demo/text/hide_text.html)
 
 ##可用性
 

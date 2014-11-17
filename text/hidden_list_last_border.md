@@ -60,7 +60,7 @@
 	
 ###demo示例
 
-以上四个的demo在这里，请 [>>点击<<](../demo/text/hidden_list_last_border.html)
+以上四个的demo在这里，请 [>>点击<<](http://linxz.github.io/CSS_Skills/demo/text/hidden_list_last_border.html)
 
 ##小结一下
 目前想到的方法就是这些了，然后其他的方式大部分来说都是差不多的。基本上我个人的感觉就是这么几点：
