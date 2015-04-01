@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<title>星星点评方式控制</title>
+<style>
+div,input {margin: 0;padding: 0;}
+
+/* 控制星星背景颜色的一个元素 */
+.bg_bar {position: absolute;top: 0;left: -100px;width: 100px;height: 20px;background-color: #c8c8c8;border-left:100px solid #f32600;border-right: 100px solid #3171d2;z-index: 2}
+
+/* demo1的代码 */
+.demo1 {position: relative;width: 100px;height: 20px;overflow: hidden;}
+.demo1:after {position: absolute;top: 0;left: 0;width: 100px;height: 20px;background:url(../../img/picture/star_rating.png) 0 0 no-repeat;z-index: 4;content: "";pointer-events:none;}
+.demo1 a {position: relative;float: left;width: 20px;height: 20px;overflow: hidden;line-height: 99em;text-decoration: none;z-index: 3;}
+.demo1 a:hover ~ .bg_bar {left: -80px;}
+.demo1 a + a:hover ~ .bg_bar {left: -60px;}
+.demo1 a + a + a:hover ~ .bg_bar {left: -40px;}
+.demo1 a + a + a + a:hover ~ .bg_bar {left: -20px;}
+.demo1 a + a + a + a + a:hover ~ .bg_bar {left: 0;}
+
+/* demo2的代码 */
+.demo2 {position: relative;width: 100px;height: 20px;overflow: hidden;background-color: #c8c8c8;}
+.demo2:after {position: absolute;top: 0;left: 0;width: 100px;height: 20px;background:url(../../img/picture/star_rating.png) 0 0 no-repeat;z-index: 5;content: "";pointer-events:none;}
+.demo2 input {position: relative;float: left;width: 20px;height: 20px;border:0 none;background: none;z-index: 3;-webkit-appearance:none;cursor: pointer;}
+.demo2 input:checked ~ .bg_bar {left: auto;right: 80px}
+.demo2 input + input:checked ~ .bg_bar {right: 60px;}
+.demo2 input + input + input:checked ~ .bg_bar {right: 40px;}
+.demo2 input + input + input + input:checked ~ .bg_bar {right: 20px}
+.demo2 input + input + input + input + input:checked ~ .bg_bar {right: 0;}
+.demo2 input:hover ~ .bg_bar {left: -80px}
+.demo2 input + input:hover ~ .bg_bar {left: -60px;}
+.demo2 input + input + input:hover ~ .bg_bar {left: -40px;}
+.demo2 input + input + input + input:hover ~ .bg_bar {left: -20px;}
+.demo2 input + input + input + input + input:hover ~ .bg_bar {left: 0;}
+
+/* demo3的代码 */
+.demo3 {position: relative;width: 100px;height: 20px;overflow: hidden;}
+.demo3 input {width: 100px;height: 20px;-webkit-appearance:none;background-color: #c8c8c8;outline: 0 none;}
+.demo3 input::-webkit-slider-container {height: 20px;}
+.demo3 input::-webkit-slider-runnable-track {position: relative;}
+.demo3 input::-webkit-slider-runnable-track:after {position: absolute;top: 0;left: 0;width: 100%;height: 20px;content:"";background:url(../../img/picture/star_rating.png) 0 0 no-repeat;}
+.demo3 input::-webkit-slider-thumb {width: 20px;height: 20px;background-color: #f00;-webkit-appearance:none;}
+
+/* demo4的代码 */
+.demo4 {position: relative;width: 100px;height: 20px;overflow: hidden;background-color: #c8c8c8;}
+.demo4:after {position: absolute;top: 0;left: 0;width: 100px;height: 20px;background:url(../../img/picture/star_rating.png) 0 0 no-repeat;z-index: 4;content: "";pointer-events:none;}
+.demo4 a {position: relative;float: left;width: 20px;height: 20px;overflow: hidden;line-height: 99em;text-decoration: none;z-index: 3;}
+.demo4 .bg_bar {position: static;display: none;width: 0;border: 0 none;background-color: #f32600;}
+.demo4 #s1:target {display: block;width: 20px;}
+.demo4 #s2:target {display: block;width: 40px;}
+.demo4 #s3:target {display: block;width: 60px;}
+.demo4 #s4:target {display: block;width: 80px;}
+.demo4 #s5:target {display: block;width: 100px;}
+</style>
+</head>
+<body>
+<h1>通过选择符的方式控制星星点评的显示</h1>
+<p>可控制的方式有很多，目前可想到的通过CSS来处理的方式有以下几种，仅作为参考。</p>
+<p>如果要提到兼容性的问题呢，这个……好吧，我没考虑，懒得考虑……反正涉及到兼容性的话，能实现的方式能玩的方法太有限了。</p>
+<ol>
+	<li>
+		<h2><code>E~F</code> 选择符结合 <code>a</code> 的 <code>:hover</code> 方式来控制选择星星</h2>
+		<div class="demo1"><a href="###"></a><a href="###"></a><a href="###"></a><a href="###"></a><a href="###"></a><span class="bg_bar"></span></div>
+		<p>这种方式是通过一个<code>a</code>标签来实现的，当<code>:hover</code>的时候通过选择符来改变，但仅仅只是可以改变状态，选中后还是需要通过其他方式来记录，例如<code>click</code>后增加一个<strong>.current</strong>之类的类名来表示。</p>
+	</li>
+	<li>
+		<h2><code>E~F</code> 选择符结合 <code>:checked</code> 控制星星</h2>
+		<div class="demo2"><input type="radio" name="demo2" /><input type="radio" name="demo2" /><input type="radio" name="demo2" /><input type="radio" name="demo2" /><input type="radio" name="demo2" /><span class="bg_bar"></span></div>
+		<p>通过 <code>input</code> 的 <code>:checked</code> 直接展示选中的星星数量</p>
+	</li>
+	<li>
+		<h2><code>input type="range"</code> 的方式来展示星星的数量</h2>
+		<div class="demo3"><input type="range" value="1" min="1" max="5" step="1"/></div>
+		<p><em style="color:#f00">失败！</em>-_" 本来还想通过<code>input</code>的<code>range</code>类型来直接改变，不过这个类型中的拖动的部分宽度增加了也就影响了拖动，目前暂时还没想到有什么办法可以直接用CSS来表现，就先这样吧……</p>
+		<p><em style="color:#00f">提示：</em>这个是可以在上面拖动的……</p>
+	</li>
+	<li>
+		<h2><code>a</code>标签中的锚点跳转结合<code>:target</code>选择符方式实现</h2>
+		<div class="demo4"><a href="#s1"></a><a href="#s2"></a><a href="#s3"></a><a href="#s4"></a><a href="#s5"></a><span class="bg_bar" id="s1"></span><span class="bg_bar" id="s2"></span><span class="bg_bar" id="s3"></span><span class="bg_bar" id="s4"></span><span class="bg_bar" id="s5"></span></div>
+		<p>点到哪里，亮在哪里……</p>
+	</li>
+</ol>
+</body>
+</html>
