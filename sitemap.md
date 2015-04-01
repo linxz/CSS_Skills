@@ -9,7 +9,7 @@
 * [首行缩进&首行悬挂](text/text-indent.md)
 
 ## 图片处理方面的
-* [星星评级哪个是控制](picture/star_rating.md)
+* [星星评级方式控制](picture/star_rating.md)
 
 ## 层相关的
 
