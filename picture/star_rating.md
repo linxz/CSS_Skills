@@ -70,6 +70,25 @@
 	.demo4 #s4:target {display: block;width: 80px;}
 	.demo4 #s5:target {display: block;width: 100px;}
 	
+### :checked 和 float:right 控制星星
+
+其实这种方式还是利用了`E ~ E`的选择符方式来影响后续几个标签的样式，只不过是通过了`float:right`在视觉表现上看到星星是从左到右的一个点亮方式。原本如果仅仅只是`float:right`的话，`input`标签位置是会倒过来排序的，也就是因为这样，如果最终要获取`input`的`value`值就会变成**5\4\3\2\1**，而不是原来的是**1\2\3\4\5**。
+
+`float:right`的原因导致了`input`标签在表现上的不同，同时还会让元素整体跑到右边去，那么这个时候需要增加一个`div`标签来添加`float:left`把整体拉到左边来，所以在`input`外层我们需要增加一个`div`来控制。
+
+	<div class="demo5">
+		<div class="star_ctrl"><input type="radio" name="demo5"><input type="radio" name="demo5"><input type="radio" name="demo5"><input type="radio" name="demo5"><input type="radio" name="demo5"></div>
+	</div>
+	
+	/* demo5的代码 */
+	.demo5 {width: 100px;height: 20px;overflow: hidden;}
+	.demo5 .star_ctrl {float: left;}
+	.demo5 input {float: right;width: 20px;height: 20px;-webkit-appearance:none;border: 0 none;background: url(../../img/picture/star_sprite.png) no-repeat 0 -32px;outline: 0 none;-webkit-transition:all 100ms linear;}
+	.demo5 input:checked,
+	.demo5 input:checked ~ input {background-position: 0 0;}
+
+从代码上来看，比前面的简洁了不少……
+
 ## 结语
 
 终于又折腾了一个……感觉自己又是在应付，不写不折腾怕忘记了一些东西（还真的是会忘记），写呢又发觉写了之后是没什么用处的东西，真实一个纠结的人啊！
