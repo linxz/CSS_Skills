@@ -52,6 +52,13 @@ div,input {margin: 0;padding: 0;}
 .demo4 #s3:target {display: block;width: 60px;}
 .demo4 #s4:target {display: block;width: 80px;}
 .demo4 #s5:target {display: block;width: 100px;}
+
+/* demo5的代码 */
+.demo5 {width: 100px;height: 20px;overflow: hidden;}
+.demo5 .star_ctrl {float: left;}
+.demo5 input {float: right;width: 20px;height: 20px;-webkit-appearance:none;border: 0 none;background: url(../../img/picture/star_sprite.png) no-repeat 0 -32px;outline: 0 none;-webkit-transition:all 100ms linear;}
+.demo5 input:checked,
+.demo5 input:checked ~ input {background-position: 0 0;}
 </style>
 </head>
 <body>
@@ -79,6 +86,14 @@ div,input {margin: 0;padding: 0;}
 		<h2><code>a</code>标签中的锚点跳转结合<code>:target</code>选择符方式实现</h2>
 		<div class="demo4"><a href="#s1"></a><a href="#s2"></a><a href="#s3"></a><a href="#s4"></a><a href="#s5"></a><span class="bg_bar" id="s1"></span><span class="bg_bar" id="s2"></span><span class="bg_bar" id="s3"></span><span class="bg_bar" id="s4"></span><span class="bg_bar" id="s5"></span></div>
 		<p>点到哪里，亮在哪里……</p>
+	</li>
+	<li>
+		<h2><code>:checked</code> 和 <code>float:right</code> 控制星星</h2>
+		<div class="demo5">
+			<div class="star_ctrl"><input type="radio" name="demo5" /><input type="radio" name="demo5" /><input type="radio" name="demo5" /><input type="radio" name="demo5" /><input type="radio" name="demo5" /></div>
+		</div>
+		<p>通过 <code>float:right</code> 将 <code>input</code> 标签的位置反过来，然后通过 <code>E~E</code> 选择符的方式影响后续的几个 <code>input</code> 的样式，最后通过 <code>input</code> 外层容器再用 <code>float:left</code> 把整体位置转过来就好了。</p>
+		<p>加上一个 <code>transition</code> 来增加点动画过渡效果，应该会更好一点……</p>
 	</li>
 </ol>
 </body>
