@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="UTF-8">
+<title>在一个列表中我们可以这样玩</title>
+<link rel="stylesheet" href="http://linxz.github.io/tianyizone/css-reset-min.css">
+<style>
+/* 这里只是简单的页面修饰 */
+body {padding: 10px;}
+dl {overflow: hidden;margin: 20px 0;}
+dt {padding-top: 15px;font-weight: bold;color: #f32600;border-top: 1px dashed #C8C8C8;}
+dd {padding-top: 10px;}
+
+/* demo1 */
+ul#demo1 {position: relative;overflow: hidden;margin-left: 10px;padding: 10px 10px 0;background-color: #F8F8F8;}
+ul#demo1:before {position: absolute;top: 0;left: 0;width: 1px;height: 0;overflow: hidden;content:"";background-color: #f32600;transition: all 300ms linear}
+ul#demo1 li {line-height: 2;border-bottom: 1px dashed #999;transition: all 100ms linear}
+ul#demo1:hover:before {height: 100%;}
+ul#demo1:hover li {border-bottom-color: #5c74e1;background-color: #F8F8F8;opacity: .5;}
+ul#demo1 li:hover {border-bottom-color: #f32600;background-color: #D8D8D8;opacity: 1;}
+
+/* demo2 */
+ul#demo2 {position: relative;overflow: hidden;margin-top: 10px;margin-left: 10px;padding: 0 10px;background-color: #F8F8F8;}
+ul#demo2 li:last-child:before {position: absolute;top: -35px;left: 0;width: 2px;height: 35px;overflow: hidden;content:"";background-color: #f32600;transition: all 300ms linear}
+ul#demo2 li {height: 34px;overflow: hidden;line-height: 34px;border-bottom: 1px dashed #999;opacity: 1 !important;transition: all 100ms linear;}
+ul#demo2 li:nth-child(1):hover ~ li:last-child:before {top: 0;}
+ul#demo2 li:nth-child(2):hover ~ li:last-child:before {top: 35px;}
+ul#demo2 li:nth-child(3):hover ~ li:last-child:before {top: 70px;}
+ul#demo2 li:nth-child(4):hover ~ li:last-child:before {top: 105px;}
+ul#demo2 li:last-child:hover:before {top: 140px;}
+
+ul#demo2:hover li {border-bottom-color: #5c74e1;background-color: #F8F8F8;opacity: .5;}
+ul#demo2 li:hover {border-bottom-color: #f32600;background-color: #D8D8D8;opacity: 1;}
+</style>
+</head>
+<body>
+<h1>在一个列表中我们可以这样玩</h1>
+<dl>
+	<dt>玩法一：</dt>
+	<dd>
+		<ul id="demo1">
+			<li>这里应该是很多的文字 000000001</li>
+			<li>这里应该是很多的文字 000000002</li>
+			<li>这里应该是很多的文字 000000003</li>
+			<li>这里应该是很多的文字 000000004</li>
+			<li>这里应该是很多的文字 000000005</li>
+		</ul>
+	</dd>
+	<dt>玩法二：</dt>
+	<dd>
+		<ul id="demo2">
+			<li>这里应该是很多的文字 000000001</li>
+			<li>这里应该是很多的文字 000000002</li>
+			<li>这里应该是很多的文字 000000003</li>
+			<li>这里应该是很多的文字 000000004</li>
+			<li>这里应该是很多的文字 000000005</li>
+		</ul>
+	</dd>
+</dl>
+</body>
+</html>
