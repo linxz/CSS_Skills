@@ -2,43 +2,70 @@
 <html lang="zh-cn">
 <head>
 <meta charset="UTF-8">
-<title>在一个列表中我们可以这样玩</title>
+<title>:hover伪类的一些小娱乐</title>
 <link rel="stylesheet" href="http://linxz.github.io/tianyizone/css-reset-min.css">
 <style>
 /* 这里只是简单的页面修饰 */
-body {padding: 10px;}
-dl {overflow: hidden;margin: 20px 0;}
-dt {padding-top: 15px;font-weight: bold;color: #f32600;border-top: 1px dashed #C8C8C8;}
-dd {padding-top: 10px;}
+body {padding: 10px 10px 100px;}
+dl {overflow: hidden;margin: 20px 0;border-top: 1px dashed #C8C8C8;}
+dt {padding-top: 20px;font-weight: bold;color: #f32600;}
 
-/* demo1 */
-ul#demo1 {position: relative;overflow: hidden;margin-left: 10px;padding: 10px 10px 0;background-color: #F8F8F8;}
-ul#demo1:before {position: absolute;top: 0;left: 0;width: 1px;height: 0;overflow: hidden;content:"";background-color: #f32600;transition: all 300ms linear}
-ul#demo1 li {line-height: 2;border-bottom: 1px dashed #999;transition: all 100ms linear}
-ul#demo1:hover:before {height: 100%;}
-ul#demo1:hover li {border-bottom-color: #5c74e1;background-color: #F8F8F8;opacity: .5;}
-ul#demo1 li:hover {border-bottom-color: #f32600;background-color: #D8D8D8;opacity: 1;}
+/* demo1_1 */
+ul#demo1_1 {position: relative;overflow: hidden;margin-left: 10px;padding: 10px 10px 0;background-color: #F8F8F8;}
+ul#demo1_1:before {position: absolute;top: 0;left: 0;width: 1px;height: 0;overflow: hidden;content:"";background-color: #f32600;transition: all 300ms linear}
+ul#demo1_1 li {line-height: 2;border-bottom: 1px dashed #999;transition: all 100ms linear}
+ul#demo1_1:hover:before {height: 100%;}
+ul#demo1_1:hover li {border-bottom-color: #5c74e1;background-color: #F8F8F8;opacity: .5;}
+ul#demo1_1 li:hover {border-bottom-color: #f32600;background-color: #D8D8D8;opacity: 1;}
 
-/* demo2 */
-ul#demo2 {position: relative;overflow: hidden;margin-top: 10px;margin-left: 10px;padding: 0 10px;background-color: #F8F8F8;}
-ul#demo2 li:last-child:before {position: absolute;top: -35px;left: 0;width: 2px;height: 35px;overflow: hidden;content:"";background-color: #f32600;transition: all 300ms linear}
-ul#demo2 li {height: 34px;overflow: hidden;line-height: 34px;border-bottom: 1px dashed #999;opacity: 1 !important;transition: all 100ms linear;}
-ul#demo2 li:nth-child(1):hover ~ li:last-child:before {top: 0;}
-ul#demo2 li:nth-child(2):hover ~ li:last-child:before {top: 35px;}
-ul#demo2 li:nth-child(3):hover ~ li:last-child:before {top: 70px;}
-ul#demo2 li:nth-child(4):hover ~ li:last-child:before {top: 105px;}
-ul#demo2 li:last-child:hover:before {top: 140px;}
+/* demo1_2 */
+ul#demo1_2 {position: relative;overflow: hidden;margin-top: 10px;margin-left: 10px;padding: 0 10px;background-color: #F8F8F8;}
+ul#demo1_2 li:last-child:before {position: absolute;top: -35px;left: 0;width: 2px;height: 35px;overflow: hidden;content:"";background-color: #f32600;transition: all 300ms linear}
+ul#demo1_2 li {height: 34px;overflow: hidden;line-height: 34px;border-bottom: 1px dashed #999;opacity: 1 !important;transition: all 100ms linear;}
+ul#demo1_2 li:nth-child(1):hover ~ li:last-child:before {top: 0;}
+ul#demo1_2 li:nth-child(2):hover ~ li:last-child:before {top: 35px;}
+ul#demo1_2 li:nth-child(3):hover ~ li:last-child:before {top: 70px;}
+ul#demo1_2 li:nth-child(4):hover ~ li:last-child:before {top: 105px;}
+ul#demo1_2 li:last-child:hover:before {top: 140px;}
+ul#demo1_2:hover li {border-bottom-color: #5c74e1;background-color: #F8F8F8;opacity: .5;}
+ul#demo1_2 li:hover {border-bottom-color: #f32600;background-color: #D8D8D8;opacity: 1;}
 
-ul#demo2:hover li {border-bottom-color: #5c74e1;background-color: #F8F8F8;opacity: .5;}
-ul#demo2 li:hover {border-bottom-color: #f32600;background-color: #D8D8D8;opacity: 1;}
+/* demo1_3 */
+ul#demo1_3 {overflow: hidden;margin-top: 10px;padding: 0 10px;background-color: #F8F8F8;}
+ul#demo1_3 li {position: relative;padding-left: 10px;}
+ul#demo1_3 li:before {position: absolute;top: 15px;left: 0;width: 2px;height: 0px;overflow: hidden;content:"";background-color: #f32600;transition: all 300ms linear;opacity: .2;}
+ul#demo1_3 li {height: 34px;overflow: hidden;line-height: 34px;border-bottom: 1px dashed #999;opacity: 1 !important;transition: all 200ms linear;}
+ul#demo1_3 li:hover:before {top: 0;height: 35px;opacity: .7;}
+ul#demo1_3:hover li {border-bottom-color: #5c74e1;background-color: #F8F8F8;opacity: .5;}
+ul#demo1_3 li:hover {border-bottom-color: #f32600;background-color: #D8D8D8;opacity: 1;}
+
+/* demo1_4 */
+ul#demo1_4 {overflow: hidden;margin-top: 10px;padding: 0 10px;background-color: #F8F8F8;}
+ul#demo1_4 li {position: relative;padding-left: 10px;}
+ul#demo1_4 li:before {position: absolute;top: -35px;left: 0;width: 2px;height: 35px;overflow: hidden;content:"";background-color: #f32600;transition: all 200ms linear;opacity: .2;}
+ul#demo1_4 li:nth-child(odd):before {top: 35px;}
+ul#demo1_4 li {height: 34px;overflow: hidden;line-height: 34px;border-bottom: 1px dashed #999;opacity: 1 !important;transition: all 200ms linear;}
+ul#demo1_4 li:hover:before {top: 0px;opacity: .7;}
+ul#demo1_4:hover li {border-bottom-color: #5c74e1;background-color: #F8F8F8;opacity: .5;}
+ul#demo1_4 li:hover {border-bottom-color: #f32600;background-color: #D8D8D8;opacity: 1;}
+
+/* demo2_1 */
+#demo2_1 {position: relative;}
+#demo2_1 a {position: relative;text-decoration: none;}
+#demo2_1 a:after {position: absolute;bottom: -2px;left: -200%;width: 100%;height: 2px;overflow: hidden;background-color: #f32600;content: "";transition: all 300ms ease-out;opacity: 0;}
+#demo2_1 a:hover:after {left: 0;opacity: 1;}
+#demo2_1 a:target {border-bottom: 2px solid #f32600;}
+#demo2_1 a:target:after {display: none;}
 </style>
 </head>
 <body>
-<h1>在一个列表中我们可以这样玩</h1>
+<h1>玩一下:hover时的效果</h1>
+<p>:hover可玩的东西还是比较的，基本上还是通过其他元素来增强网页中的视觉交互响应效果。</p>
+<h2>在一个列表中我们可以这样玩</h2>
 <dl>
 	<dt>玩法一：</dt>
 	<dd>
-		<ul id="demo1">
+		<ul id="demo1_1">
 			<li>这里应该是很多的文字 000000001</li>
 			<li>这里应该是很多的文字 000000002</li>
 			<li>这里应该是很多的文字 000000003</li>
@@ -48,13 +75,46 @@ ul#demo2 li:hover {border-bottom-color: #f32600;background-color: #D8D8D8;opacit
 	</dd>
 	<dt>玩法二：</dt>
 	<dd>
-		<ul id="demo2">
+		<ul id="demo1_2">
 			<li>这里应该是很多的文字 000000001</li>
 			<li>这里应该是很多的文字 000000002</li>
 			<li>这里应该是很多的文字 000000003</li>
 			<li>这里应该是很多的文字 000000004</li>
 			<li>这里应该是很多的文字 000000005</li>
 		</ul>
+	</dd>
+	<dt>玩法三：</dt>
+	<dd>
+		<ul id="demo1_3">
+			<li>这里应该是很多的文字 000000001</li>
+			<li>这里应该是很多的文字 000000002</li>
+			<li>这里应该是很多的文字 000000003</li>
+			<li>这里应该是很多的文字 000000004</li>
+			<li>这里应该是很多的文字 000000005</li>
+		</ul>
+	</dd>
+	<dt>玩法四：</dt>
+	<dd>
+		<ul id="demo1_4">
+			<li>这里应该是很多的文字 000000001</li>
+			<li>这里应该是很多的文字 000000002</li>
+			<li>这里应该是很多的文字 000000003</li>
+			<li>这里应该是很多的文字 000000004</li>
+			<li>这里应该是很多的文字 000000005</li>
+		</ul>
+	</dd>
+</dl>
+<h2>如果是一个导航的话，或许可以这样玩……</h2>
+<dl>
+	<dt>玩法一：</dt>
+	<dd>
+		<div id="demo2_1">
+			<a href="#demo2_1_a_1" id="demo2_1_a_1">导航001</a>
+			<a href="#demo2_1_a_2" id="demo2_1_a_2">导航002</a>
+			<a href="#demo2_1_a_3" id="demo2_1_a_3">导航003</a>
+			<a href="#demo2_1_a_4" id="demo2_1_a_4">导航004</a>
+			<a href="#demo2_1_a_5" id="demo2_1_a_5">导航005</a>
+		</div>
 	</dd>
 </dl>
 </body>
