@@ -41,13 +41,21 @@ ul#demo1_3 li:hover {border-bottom-color: #f32600;background-color: #D8D8D8;opac
 
 /* demo1_4 */
 ul#demo1_4 {overflow: hidden;margin-top: 10px;padding: 0 10px;background-color: #F8F8F8;}
-ul#demo1_4 li {position: relative;padding-left: 10px;}
+ul#demo1_4 li {position: relative;height: 34px;overflow: hidden;padding-left: 10px;line-height: 34px;border-bottom: 1px dashed #999;transition: all 200ms linear;}
 ul#demo1_4 li:before {position: absolute;top: -35px;left: 0;width: 2px;height: 35px;overflow: hidden;content:"";background-color: #f32600;transition: all 200ms linear;opacity: .2;}
 ul#demo1_4 li:nth-child(odd):before {top: 35px;}
-ul#demo1_4 li {height: 34px;overflow: hidden;line-height: 34px;border-bottom: 1px dashed #999;opacity: 1 !important;transition: all 200ms linear;}
 ul#demo1_4 li:hover:before {top: 0px;opacity: .7;}
 ul#demo1_4:hover li {border-bottom-color: #5c74e1;background-color: #F8F8F8;opacity: .5;}
 ul#demo1_4 li:hover {border-bottom-color: #f32600;background-color: #D8D8D8;opacity: 1;}
+
+/* demo1_5 */
+ul#demo1_5 {margin-top: 10px;padding: 0 10px;}
+ul#demo1_5 li {position: relative;height: 34px;padding-left: 10px;line-height: 34px;border-bottom: 1px dashed #999;color: #000;transition: all 600ms linear;}
+ul#demo1_5 li:hover {color: #a70f0d;}
+ul#demo1_5 li:after {position: absolute;top: 0;left: 0;width: 100%;height: 100%;overflow: hidden;content: "";background-color: #b8fa6a;transition: all 600ms linear;z-index: -1;transform-origin: 50% 0;
+	transform: perspective(1020px) rotateX(0);}
+ul#demo1_5 li:after {background: #a70f0d;}
+ul#demo1_5 li:hover:after {opacity: .01; transform: perspective(0) rotateX(360deg);}
 
 /* demo2_1 */
 #demo2_1 {position: relative;}
@@ -60,7 +68,7 @@ ul#demo1_4 li:hover {border-bottom-color: #f32600;background-color: #D8D8D8;opac
 </head>
 <body>
 <h1>玩一下:hover时的效果</h1>
-<p>:hover可玩的东西还是比较的，基本上还是通过其他元素来增强网页中的视觉交互响应效果。</p>
+<p>:hover可玩的东西还是比较多的，基本上还是通过其他元素来增强网页中的视觉交互响应效果。</p>
 <h2>在一个列表中我们可以这样玩</h2>
 <dl>
 	<dt>玩法一：</dt>
@@ -96,6 +104,16 @@ ul#demo1_4 li:hover {border-bottom-color: #f32600;background-color: #D8D8D8;opac
 	<dt>玩法四：</dt>
 	<dd>
 		<ul id="demo1_4">
+			<li>这里应该是很多的文字 000000001</li>
+			<li>这里应该是很多的文字 000000002</li>
+			<li>这里应该是很多的文字 000000003</li>
+			<li>这里应该是很多的文字 000000004</li>
+			<li>这里应该是很多的文字 000000005</li>
+		</ul>
+	</dd>
+	<dt>玩法五：</dt>
+	<dd>
+		<ul id="demo1_5">
 			<li>这里应该是很多的文字 000000001</li>
 			<li>这里应该是很多的文字 000000002</li>
 			<li>这里应该是很多的文字 000000003</li>
