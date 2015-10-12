@@ -6,25 +6,25 @@
 <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, minimal-ui">
 <style>
 .demo {
-	float: left;
+	float: left; /* 内容块居左浮动 */
 }
 .demo input {
-	float: right;
+	float: right; /* 所有input（星星）向右浮动，形成“倒序”形式 */
 	width: 44px;
 	height: 44px;
-	-webkit-appearance: none;
+	-webkit-appearance: none; /* 去掉input默认样式 */
 	outline: none;
 	border: 0 none;
 	background: url(img/demo_001-star-rating.png) 0 -44px no-repeat;
 	opacity: .3;
-	transition: all 100ms linear;
+	transition: all 100ms linear; /* 增加过渡效果 */
 	-webkit-tap-hightlight-color: rgba(0,0,0,0);
 }
 .demo input:hover,
 .demo input:hover ~ input {opacity: 1;}
 .demo input:checked,
 .demo input:checked ~ input {
-	background-position: 0 0;
+	background-position: 0 0; /* input选中状态切换背景图 */
 	opacity: 1;
 }
 
