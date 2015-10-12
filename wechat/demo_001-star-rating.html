@@ -16,14 +16,17 @@
 	width: 44px;
 	height: 44px;
 	-webkit-appearance: none;
-	outline: 0 none;
+	outline: none;
+	border: 0 none;
 	background: url(img/demo_001-star-rating.png) 0 -44px no-repeat;
 	opacity: .3;
 	transition: all 100ms linear;
+	-webkit-tap-hightlight-color: rgba(0,0,0,0);
 }
 .demo input:hover,
 .demo input:hover ~ input {opacity: 1;}
-.demo input:checked, .demo input:checked ~ input {
+.demo input:checked,
+.demo input:checked ~ input {
 	background-position: 0 0;
 	opacity: 1;
 }
