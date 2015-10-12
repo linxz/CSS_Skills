@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>微信公众号 talk-css 中所提 demo —— 实现星星评级小技巧</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, minimal-ui">
+<style>
+.demo_box {
+	float: left;
+}
+.demo {
+	overflow: hidden;
+}
+.demo input {
+	float: right;
+	width: 44px;
+	height: 44px;
+	-webkit-appearance: none;
+	outline: 0 none;
+	background: url(img/demo_001-star-rating.png) 0 -44px no-repeat;
+	opacity: .3;
+	transition: all 100ms linear;
+}
+.demo input:hover,
+.demo input:hover ~ input {opacity: 1;}
+.demo input:checked, .demo input:checked ~ input {
+	background-position: 0 0;
+	opacity: 1;
+}
+
+.wechat_info {
+	clear: left;
+	padding-top: 10px;
+}
+</style>
+</head>
+<body>
+<section class="demo_box">
+	<h1>星星评级小技巧</h1>
+	<div class="demo">
+		<input type="radio" name="star-rating">
+		<input type="radio" name="star-rating">
+		<input type="radio" name="star-rating">
+		<input type="radio" name="star-rating">
+		<input type="radio" name="star-rating">
+	</div>
+</section>
+<section class="wechat_info">
+	<h2>微信公众号信息</h2>
+	<p>公众号： <strong>talk-css</strong> 如果喜欢，还请关注……</p>
+	<p><img src="img/qrcode_talk-css.jpg" alt=""></p>
+</section>
+</body>
+</html>
