@@ -15,5 +15,7 @@
 
 ## 其他
 
+* [:hover伪类的一些小娱乐](http://linxz.github.io/CSS_Skills/demo/other/about_hover_pseudo_class.html)
+
 ## 最后想说的
 有很多东西其实我自己也没想好，基本上是想一点写一点的感觉，而且内容都很随意……
