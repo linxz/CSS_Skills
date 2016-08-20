@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>调戏锚点与 :target</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, minimal-ui, shrink-to-fit=no">
+<style>
+* {margin: 0;padding: 0;box-sizing: border-box;}
+li,ul {list-style: none;}
+body {padding: 10px 100px 10px 10px;line-height: 1.8;font-family: Arial, Roboto, 'Droid Sans', 'Hiragino Sans GB', 'Microsoft YaHei', 'Simsun', STXihei, 'sans-serif';}
+h1 {padding-left: 5px;margin-bottom: 10px;font-size: 18px;color: #f00;border-left: 5px solid #8bc34a;}
+code {padding:2px 5px 3px;border-radius: 3px;background-color: #ffbd5c;color: #333;}
+h1 + p,
+h2 + p {font-size: 14px;color: #666;}
+a {color: #0661f3;transition: all 200ms linear;}
+a:hover,
+a:active {color: #e91e63;}
+
+/* 目标元素高亮 */
+:target {text-align: center;background-color: #f32600;color: #fff;transition: all 200ms linear;}
+
+/* 第一种方式 */
+section:nth-of-type(1) {
+	padding-bottom: 70%;
+}
+
+/* 第二种方式 */
+section:nth-of-type(2) {position: relative;height: 320px;}
+section:nth-of-type(2) .menu {position: absolute;left: 0;bottom: 5px;}
+section:nth-of-type(2) .menu ~ p {position: absolute;left: 0;bottom: 40px;height: 200px;overflow: hidden;padding: 10px;background-color: #fff;border: 1px solid #999;border-radius: 3px;}
+/* 这里的 :target 也是为了展现效果，改变层叠属性值 */
+section:nth-of-type(2) .menu ~ p:target {z-index: 3;color: #f00;}
+
+/* 第三种方式 */
+section:nth-of-type(3) {height: 400px;}
+section:nth-of-type(3) li {border-bottom: 1px solid #333;}
+section:nth-of-type(3) li a {display: block;height: 40px;line-height: 40px;text-indent: 1em;text-decoration: none;color: #ffc107;background-color: #0677d0;}
+section:nth-of-type(3) li a:hover,
+section:nth-of-type(3) li a:active,
+section:nth-of-type(3) li li a {color: #ffffff;background-color: #2196f3;}
+section:nth-of-type(3) li ul {height: 0;overflow: hidden;}
+section:nth-of-type(3) li li {border-top: 1px solid #333;border-bottom: 0 none;}
+/* 这里的 :target 也是为了展现效果，改变子级菜单的高度从而显示子级元素 */
+section:nth-of-type(3) li ul:target {height: auto;}
+
+/* 第四种方式 */
+section:nth-of-type(4) .tab_box {width: 100%;}
+section:nth-of-type(4) .tab_con {position: relative;width: 210px;height: 210px;overflow: hidden;background: #fc0;}
+section:nth-of-type(4) .tab_con img {position: absolute;left: 0;top: -210px;width: 210px;height: 210px;transition: all 200ms linear;}
+/* 这里的 :target 也是为了展现效果，改变选项卡图片的位置 */
+section:nth-of-type(4) .tab_con img:target {z-index: 3;top: 0;}
+
+/* 第五种方式 */
+.menu_tree {position: fixed;top: 5px;right: 5px;width: 80px;border-radius: 5px;overflow: hidden;}
+.menu_tree a {display: block;width: 80px;height: 30px;overflow: hidden;line-height: 30px;text-align: center;text-decoration: none;background-color: #333;color: #f8f8f8;}
+.menu_tree a:hover,
+.menu_tree a:active {background-color: #3a3a3a;color: #cddc39;}
+</style>
+</head>
+<body>
+<h1 id="page_title"><code>a</code> 链接的锚点与 <code>:target</code> 选择符</h1>
+<p>以下内容未考虑兼容性问题，只是为了展示效果而写 CSS，会结合 <code>transition</code> 来做一些滑动过渡效果等。<code>:target</code> 选择符的兼容性请查看 <a href="http://caniuse.com/#search=%3Atarget">http://caniuse.com/#search=%3Atarget</a></p>
+
+<section>
+	<h2 id="target_01">调戏一</h2>
+	<p>页面间直接跳转，并高亮显示跳转到的目标，这是最简单也是最原始的使用方式。</p>
+	<p><a href="#target_02">点击跳到目标“调戏二”部分</a></p>
+</section>
+<section>
+	<h2 id="target_02">调戏二</h2>
+	<p>点击显示、隐藏相对应内容</p>
+	<div class="menu"><a href="#t_02_a">元素 a</a> <a href="#t_02_b">元素 b</a> <a href="#t_02_c">元素 c</a></div>
+	<p id="t_02_a">元素 a 点击之后这里显示的部分</p>
+	<p id="t_02_b">元素 b 点击后，B 模块内容显示</p>
+	<p id="t_02_c">元素 c 点击之后，C 模块内容也显示</p>
+</section>
+<section>
+	<h2 id="target_03">调戏三</h2>
+	<p>伸缩型二级菜单导航</p>
+	<ul>
+		<li><a href="#t_03_a">一级菜单 a</a>
+			<ul id="t_03_a">
+				<li><a href="###">二级导航 a_1 空链接</a></li>
+				<li><a href="###">二级导航 a_2 空链接</a></li>
+			</ul>
+		</li>
+		<li><a href="#t_03_b">一级菜单 b</a>
+			<ul id="t_03_b">
+				<li><a href="###">二级导航 b_1 空链接</a></li>
+				<li><a href="###">二级导航 b_2 空链接</a></li>
+			</ul>
+		</li>
+		<li><a href="#t_03_c">一级菜单 c</a>
+			<ul id="t_03_c">
+				<li><a href="###">二级导航 c_1 空链接</a></li>
+				<li><a href="###">二级导航 c_2 空链接</a></li>
+			</ul>
+		</li>
+	</ul>
+</section>
+<section>
+	<h2 id="target_04">调戏四</h2>
+	<p>选项卡</p>
+	<div class="tab_box">
+		<div class="tab_con">
+			<img src="http://lab.tianyizone.com/supermii_find_diff/img/img_8.png" alt="" id="tab_1">
+			<img src="http://lab.tianyizone.com/supermii_find_diff/img/img_10.png" alt="" id="tab_2">
+			<img src="http://lab.tianyizone.com/supermii_find_diff/img/img_11.png" alt="" id="tab_3">
+		</div>
+		<div class="tab_pager">
+			<a href="#tab_1">1</a>
+			<a href="#tab_2">2</a>
+			<a href="#tab_3">3</a>
+		</div>
+	</div>
+</section>
+<section>
+	<h2 id="target_05">调戏五</h2>
+	<p>目录树结构</p>
+	<p>固定定位在页面的右侧了……</p>
+	<div class="menu_tree">
+		<a href="#page_title">标题</a>
+		<a href="#target_01">调戏一</a>
+		<a href="#target_02">调戏二</a>
+		<a href="#target_03">调戏三</a>
+		<a href="#target_04">调戏四</a>
+		<a href="#target_05">调戏五</a>
+	</div>
+</section>
+</body>
+</html>
