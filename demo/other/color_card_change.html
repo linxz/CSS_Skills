@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>色卡切换</title>
+<style>
+* {margin: 0;padding: 0;}
+.box {
+  width: 400px;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto 0;
+  border: 1px solid #dedede;
+}
+input {
+  -webkit-appearance: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 25%;
+  height: 16px;
+  overflow: hidden;
+  outline: 0 none;
+  background-color: #f32600;
+  z-index: 2;
+}
+input:hover {
+  cursor: pointer;
+  border-top: 1px solid #333;
+}
+input ~ .card {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(243, 36, 0, 0.3);
+  transition: all 200ms ease-out;
+}
+input:nth-of-type(1):checked ~ .card:nth-of-type(1) {
+  top: 0;
+}
+input:nth-child(2) {
+  margin-left: 25%;
+  background-color: rgb(177, 247, 120);
+}
+input ~ .card:nth-of-type(2) {
+  background-color: rgba(177, 247, 120, 0.3);
+}
+input:nth-of-type(2):checked ~ .card:nth-of-type(2) {
+  top: 0;
+}
+input:nth-child(3) {
+  margin-left: 50%;
+  background-color: rgb(120, 179, 247);
+}
+input ~ .card:nth-of-type(3) {
+  background-color: rgba(120, 179, 247, 0.3);
+}
+input:nth-of-type(3):checked ~ .card:nth-of-type(3) {
+  top: 0;
+}
+input:nth-child(4) {
+  margin-left: 75%;
+  background-color: rgb(213, 116, 243);
+}
+input ~ .card:nth-of-type(4) {
+  background-color: rgba(213, 116, 243, 0.3);
+}
+input:nth-of-type(4):checked ~ .card:nth-of-type(4) {
+  top: 0;
+}
+.tips {
+  padding: 20px 20px 0;
+}
+</style>
+</head>
+<body>
+<div class="box">
+  <input type="radio" name="colorCard" checked>
+  <input type="radio" name="colorCard">
+  <input type="radio" name="colorCard">
+  <input type="radio" name="colorCard">
+  <div class="card"></div>
+  <div class="card"></div>
+  <div class="card"></div>
+  <div class="card"></div>
+</div>
+<p class="tips">利用 input 的 :checked 选择符进行判断，再通过 E ~ F 选择符方式选择，结合 :nth-of-type()，直接定位到指定的元素，改变位置。</p>
+<p class="tips">当 input 的 type 为 radio 这个单选框时，选择了其中一个，其他几个就不会再是 checked 状态，于是就可以直接切换色卡了。</p>
+</body>
+</html>
